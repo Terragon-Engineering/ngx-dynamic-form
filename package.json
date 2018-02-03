@@ -1,0 +1,62 @@
+{
+    "name": "ngx-dynamic-form",
+    "version": "0.0.4563-development",
+    "description": "This library enables you to pass in json and generate a form",
+    "main": "./bundles/ngx-dynamic-form.umd.js",
+    "module": "./esm5/ngx-dynamic-form.js",
+    "es2015": "./esm2015/ngx-dynamic-form.js",
+    "typings": "./ngx-dynamic-form.d.ts",
+    "keywords": [
+        "angular",
+        "typescript",
+        "forms",
+        "dynamic-form"
+    ],
+    "scripts": {
+        "publish-me": "npm run build && cd dist && npm publish && cd ../",
+        "build": "npm run clean && npm run build:inline && npm run build:esm2015 && npm run build:fesm2015 && npm run build:esm5 && npm run build:fesm5 && npm run build:umd && npm run build:min && npm run move:assets",
+        "build:inline": "rsync -a *.ts ./tmp && node inlineAssets.js",
+        "build:esm2015": "ngc -p tsconfig-esm2015.json",
+        "build:fesm2015": "rollup -c rollup-esm2015.conf.js",
+        "build:esm5": "ngc -p tsconfig-esm5.json",
+        "build:fesm5": "rollup -c rollup-esm5.conf.js",
+        "build:umd": "rollup -c rollup-umd.conf.js",
+        "build:min": "uglifyjs dist/bundles/ngx-dynamic-form.umd.js -c -m -o dist/bundles/ngx-dynamic-form.umd.min.js",
+        "move:assets": "cp -r tmp/esm2015/*.d.ts tmp/esm2015/src tmp/esm2015/*.json package.json README.md dist/ && rm dist/src/*.js",
+        "clean": "rm -rf dist/ && rm -rf tmp/",
+        "copyPackageJson": "cp package.json dist",
+        "semantic-release": "semantic-release pre && npm run copyPackageJson && npm publish dist && semantic-release post"
+    },
+    "author": "Oti Kelechi",
+    "license": "0BSD",
+    "peerDependencies": {
+        "@angular/core": "4.0.0",
+        "@angular/common": "4.0.0",
+        "@angular/forms": "4.0.0",
+        "ng2-datepicker": "2.2.1",
+        "@angular/cdk": "^5.1.1",
+        "rxjs": "5.5.2"
+    },
+    "devDependencies": {
+        "@angular/core": "4.0.0",
+        "@angular/common": "4.0.0",
+        "@angular/compiler": "4.0.0",
+        "@angular/compiler-cli": "4.0.0",
+        "rxjs": "5.5.2",
+        "typescript": "2.4.2",
+        "zone.js": "0.8.14",
+        "gulp-inline-ng2-template": "4.0.0",
+        "vinyl-fs": "2.4.4",
+        "rollup": "0.51.8",
+        "uglify-js": "3.0.7",
+        "semantic-release": "8.2.0"
+    },
+    "dependencies": {
+        "@angular/forms": "4.0.0",
+        "ng2-datepicker": "2.2.1"
+    },
+    "repository": {
+        "type": "bitbucket",
+        "url": "https://bitbucket.org/terragonengineering/terra-ngx-dynamic-form/issues"
+    }
+}
