@@ -56,7 +56,7 @@
         "ng2-datepicker": "2.2.1"
     },
     "repository": {
-        "type": "bitbucket",
-        "url": "https://bitbucket.org/terragonengineering/terra-ngx-dynamic-form/issues"
+        "type": "git",
+        "url": "https://github.com/terra-kelz/ngx-dynamic-form/issues/issues"
     }
 }
