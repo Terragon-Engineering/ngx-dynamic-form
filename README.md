@@ -18,13 +18,7 @@ Link Bootstrap 3 (Updates for other library and bootstrap 4 coming up soon)
 
 ## Consuming this library
 
-You can import this library in any Angular application by running:
-
-```bash
-$ npm install ngx-dynamic-form
-```
-
-and then from your Angular `AppModule`:
+You can import this library in any Angular application from your Angular `AppModule`:
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
@@ -66,6 +60,7 @@ Once your library is imported, you can use its components in your Angular applic
 In your app.component.ts file you can now create your config
 ```typescript
 import { Component } from '@angular/core';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -73,7 +68,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  foodList= ['Rice', 'Garri', 'Yam', 'Beans'];
+  foodList= ['Jollof Rice', 'Garri', 'Yam', 'Beans'];
   title = 'app';
 
   dynamicFormConfig = [
